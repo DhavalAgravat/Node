@@ -8,7 +8,7 @@ import http from "http";
 import random, { random2, random3, randomGenerator } from "./feature.js";
 //? fs -- used for file manipulation
 import fs from "fs";
-//? path --  used for read extension of pathh file and dir and other url file related things
+//? path --  used for read extension of path file and dir and other url file related things
 import path from "path";
 
 // console.log(http);
@@ -17,7 +17,7 @@ import path from "path";
 // console.log(randomNum);
 
 //! Read file using  fs (Async)
-//! First parameter of argument is file path an d second is callack function which will make this function async
+//! First parameter of argument is file path and second is callack function which will make this function async
 
 // const homeFile = fs.readFile("./index.html", () => {
 //   console.log("file read");
@@ -48,7 +48,7 @@ const server = http.createServer((request, response) => {
 
     //! Clubbing response with fs library and file reading functionality
     // Async flow of actions
-    // For callback functionn of readfile first argument is error and second one is data  we get fromm file
+    // For callback functionn of readfile first argument is error and second one is data  we get from file
     // fs.readFile("./index.html", (error, data) => {
     //   response.end(data);
     // });
