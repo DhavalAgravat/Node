@@ -3,23 +3,39 @@ import path from "path";
 
 const app = express();
 
-//! Use to serve static files This is middlewear
-// express.static(path.join(path.resolve(), "public"));
-
-//* To  use Middlewear we use Use methos in express
+//! Using middlewears
 app.use(express.static(path.join(path.resolve(), "public")));
 
-// Setting-up view engine
+//* Using urlencoded middlewear for post request
+app.use(express.urlencoded({ extended: true }));
+
+//? assume this as database for a while xD
+const users = [];
+
 app.set("view engine", "ejs");
 
 app.get("/", (request, response) => {
-  //? Render method to render ejs file
-  //? Create views folder with files with extesion ejs
-  //? in args of render provide file name without extensionto render it
-  // response.render("index");
+  response.render("index");
+});
 
-  //* To pass value in ejs file using render method pass second args as object to access passed values using keys
-  response.render("index", { name: "Void" });
+app.get("/success", (req, res) => {
+  res.render("success");
+});
+
+// API to  get form data
+app.post("/", (request, response) => {
+  users.push(request.body);
+
+  //! (1) directly rendering ejs file
+  // response.render("success");
+
+  //! (2) rendering using route
+  response.redirect("/success");
+});
+
+// API to show data of users
+app.get("/users", (request, response) => {
+  response.json({ data: users });
 });
 
 app.listen(5000, () => {
