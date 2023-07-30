@@ -3,6 +3,12 @@ import path from "path";
 
 const app = express();
 
+//! Use to serve static files This is middlewear
+// express.static(path.join(path.resolve(), "public"));
+
+//* To  use Middlewear we use Use methos in express
+app.use(express.static(path.join(path.resolve(), "public")));
+
 // Setting-up view engine
 app.set("view engine", "ejs");
 

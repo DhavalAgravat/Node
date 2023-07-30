@@ -44,3 +44,21 @@ instead of <%= name %> we will do
 ---> <%= locals.name %>
 
 -- in this case if value-key pair doesn't exist it will not gave any igly error  
+
+^ Important
+(6) How to serve any static files ffor any directory 
+
+--  first create public folder which will contain files which we statically wants to serve
+
+-- then use static method in express 
+-- pass dynamic routs using path 
+
+---> express.static(path.join(path.resolve(), "public")); [Middlewear]
+
+-- to use middlewear we use (use method) in express
+---> app.use(express.static(path.join(path.resolve(), "public")))
+
+now we can use this files at anyplace and it will statically serve for multiple purposes
+
+
+
