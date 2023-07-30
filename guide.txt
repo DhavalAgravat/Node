@@ -1,0 +1,46 @@
+(1) To Start with ejs 
+
+--  Install ejs library 
+---> npm i ejs
+
+(2) Set-Up for ejs 
+
+--  Create folder named views
+--  Then create your wanted file using extension ejs (eg: index.ejs)
+--  Can use ejs file as htmml file and  write html code into it
+
+-- Then set up "view engine" for ejs
+-- use ser method in app to set view engine 
+-- first atg engine name second arg extension name 
+---> app.set('view engine', "ejs")
+
+(3) Using ejs to render file in response of request in server for API
+
+-- as we do for endpoint use render method for response and provide ejs filename in args without extension to render it
+---> response.render("index");
+
+(4) Now to pass value in render method in showing it to  our ejs file we can use following syntax 
+
+-- To pass value
+---> response.render('index',{name:'Void'})
+
+-- To use this value in ejs file
+---> <%= name %>
+---> Eg :  
+    <body>
+        <h1>Home Of HTMl EJS</h1>
+        <h2>Welcome <%= name%></h2>
+    </body>
+
+(5) ejs good practises
+
+-- using locals instead of value only
+-- as we know we can access value using <%= name %> but what if sometime value's key is misspelled or we want to access key which isn't passed in that case  we get error 
+
+-- To counter this error we use locals, 
+---> locals is whole object we passes {}
+
+instead of <%= name %> we will do
+---> <%= locals.name %>
+
+-- in this case if value-key pair doesn't exist it will not gave any igly error  
